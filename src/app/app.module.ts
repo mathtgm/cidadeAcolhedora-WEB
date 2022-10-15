@@ -10,6 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './view/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PainelComponent } from './view/painel/painel.component';
+import { NavbarPainelComponent } from './components/navbar-painel/navbar-painel.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { PainelComponent } from './view/painel/painel.component';
     FooterComponent,
     LoginComponent,
     PainelComponent,
+    NavbarPainelComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,10 @@
+.avatar {
+  height: 100px;
+  width: 100px;
+}
+
+.nav-link:hover {
+  background-color: #93C390;
+  color: #F2F2F2;
+  border-radius: 10px;
+}
