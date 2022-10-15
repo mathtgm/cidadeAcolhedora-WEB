@@ -1,0 +1,16 @@
+.login-container {
+    padding: 50px;
+}
+
+.container-bg {
+    padding: 8% 30%;
+    background-color: #93C390;
+}
+
+@media(max-width: 430px) {
+
+    .container-bg {
+        padding: 0;
+    }
+
+}

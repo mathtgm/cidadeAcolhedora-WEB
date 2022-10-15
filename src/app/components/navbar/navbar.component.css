@@ -1,0 +1,24 @@
+#img-navbar {
+    height: 70px;
+    width: auto;
+}
+
+.navbar-item { 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    color: #3E3C3D;
+    display:inline-block; 
+    margin:0;
+}
+
+.navbar-item:after {
+    content: '';
+    display: block;
+    border-bottom: solid 3px #93C390;  
+    transform: scaleX(0);  
+    transition: transform .2s ease-in-out;
+}
+
+.navbar-item:hover:after {
+    transform: scaleX(.5);
+}

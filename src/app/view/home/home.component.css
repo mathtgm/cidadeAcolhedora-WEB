@@ -1,0 +1,44 @@
+.img-topic {
+    background-color: #F2F2F2;
+    height: 200px;
+    width: 200px;
+}
+
+.img-topic img {
+    width: 100%;
+    height: 100%;
+}
+
+.title-section {
+    padding: 10px;
+    margin-top: 50px;
+    background-color: #469941;
+    color: white;
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.slide-about img {
+    height: 500px;
+    width: auto;
+}
+
+.slide-about {
+    overflow: visible;
+    height: 500px;
+}
+
+.about-text {
+    text-align: justify;
+    padding-right: 50px;
+}
+
+.card-topic p {
+    text-align: justify;
+}
+
+.card-topic h3 {
+    color: #469941;
+    font-weight: bold;
+}
+

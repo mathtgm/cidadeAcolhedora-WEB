@@ -1,0 +1,36 @@
+<div class="sticky-top bg-light">
+  <div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3">
+
+      <nav class="navbar navbar-expand-lg m-auto">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center align-items-center">
+              <li class="navbar-item"><a routerLink="" class="nav-link px-4"><i class="bi bi-house-door-fill px-1 color-darkgreen"></i>PÁGINA INICIAL</a></li>
+              <li class="navbar-item"><a href="#" class="nav-link px-4"><i class="bi bi-search-heart-fill px-1 color-darkgreen"></i>ADOTAR</a></li>
+              <li class="navbar-item"><a href="#" class="nav-link px-4 navbar-brand"><img src="../../assets/logo-cidadeAcolhedora.png" alt="Logo Cidade Acolhedora" id="img-navbar"></a></li>
+              <li class="navbar-item"><a href="#" class="nav-link px-4"><i class="bi bi-megaphone-fill px-1 color-darkgreen"></i>FALE CONOSCO</a></li>
+              <li class="navbar-item" *ngIf="userInfo === undefined"><a routerLink="login" class="btn btn-success"><i class="bi bi-box-arrow-right me-2"></i>Acessar conta</a></li>
+              <li class="navbar-item" *ngIf="userInfo !== undefined">
+                <div class="dropdown">
+                  <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-box-arrow-right me-2"></i>Entrar
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" routerLink="usuario/painel">Painel</a></li>
+                    <li class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" (click)="logOut()">Sair</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    </header>
+  </div>
+</div>
