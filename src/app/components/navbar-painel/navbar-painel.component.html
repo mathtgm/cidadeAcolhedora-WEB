@@ -1,12 +1,29 @@
-<nav class="nav flex-column p-3">
-  <div class="d-flex flex-column align-items-center justify-content-center text-center">
-    <img [src]="perfilPhoto" alt="Foto de perfil" class="avatar">
-    <p>Bem vindo <span style="font-weight: bolder;">{{nome}} {{ultimoNome}} !</span></p>
+<nav class="navbar navbar-expand-lg">
+  <div class="d-flex flex-column collapse">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse flex-column w-100" id="navbarToggler">
+      <div class="d-flex align-items-center">
+        <img [src]="perfilPhoto" alt="Foto de perfil" class="avatar">
+        <p>Bem vindo <span style="font-weight: bolder;">{{nome}} {{ultimoNome}} !</span></p>
+      </div>
+      <ul class="navbar-nav d-flex flex-column flex-wrap ps-2 w-100">
+        <hr>
+        <li class="nav-item">
+          <a class="nav-link color-darkgreen" href="#"><i class="bi bi-bag-heart-fill pe-2"></i>Animais para adoção</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link color-darkgreen" href="#"><i class="bi bi-balloon-heart-fill pe-2"></i>Animais Adotados</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link color-darkgreen" href="#"><i class="bi bi-pencil-square pe-2"></i>Editar perfil</a>
+        </li>
+        <hr>
+        <li class="nav-item">
+          <a class="nav-link color-darkgreen" (click)="saidaUsuario()"><i class="bi bi-box-arrow-right pe-2"></i>Sair</a>
+        </li>
+      </ul>
+    </div>
   </div>
-  <hr>
-  <a class="nav-link color-darkgreen" href="#"><i class="bi bi-bag-heart-fill pe-2"></i>Animais para adoção</a>
-  <a class="nav-link color-darkgreen" href="#"><i class="bi bi-balloon-heart-fill pe-2"></i>Animais Adotados</a>
-  <a class="nav-link color-darkgreen" href="#"><i class="bi bi-pencil-square pe-2"></i>Editar perfil</a>
-  <hr>
-  <a class="nav-link color-darkgreen" (click)="saidaUsuario()"><i class="bi bi-box-arrow-right pe-2"></i>Sair</a>
 </nav>
