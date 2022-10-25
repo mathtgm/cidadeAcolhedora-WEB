@@ -3,7 +3,7 @@ import { Estado } from '../estado/estado.model';
 
 export interface Usuario {
 
-    id_suario: bigint;
+    id_usuario: bigint;
     nome: String;
     documento: String;
     telefone: String;

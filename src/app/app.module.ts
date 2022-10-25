@@ -11,6 +11,8 @@ import { LoginComponent } from './view/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PainelComponent } from './view/painel/painel.component';
 import { NavbarPainelComponent } from './components/navbar-painel/navbar-painel.component';
+import { TabelaAnimalAdocaoComponent } from './components/tabela-animal-adocao/tabela-animal-adocao.component';
+import { ConversorDataPipe } from './components/pipe/conversordata/conversor-data.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { NavbarPainelComponent } from './components/navbar-painel/navbar-painel.
     FooterComponent,
     LoginComponent,
     PainelComponent,
-    NavbarPainelComponent
+    NavbarPainelComponent,
+    TabelaAnimalAdocaoComponent,
+    ConversorDataPipe
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,23 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nome animal</th>
+      <th scope="col">Animal</th>
+      <th scope="col">Data e hora solicitação</th>
+      <th scope="col">Situação</th>
+      <th scope="col">Ação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let solicitacao of listSolicitacao">
+      <td>{{solicitacao.id_animal.nome}}</td>
+      <td>{{solicitacao.id_animal.tipo}}</td>
+      <td>{{solicitacao.data_solicitacao | conversorData}}</td>
+      <td *ngIf="solicitacao.situacao === 'A'"><span class="badge text-bg-primary">Em aberto</span></td>
+      <td *ngIf="solicitacao.situacao === 'B'"><span class="badge text-bg-warning">Em análise</span></td>
+      <td *ngIf="solicitacao.situacao === 'C'"><span class="badge text-bg-danger">Recusado</span></td>
+      <td *ngIf="solicitacao.situacao === 'D'"><span class="badge text-bg-success">Aprovado</span></td>
+      <td>!!Acao!!</td>
+    </tr>
+  </tbody>
+</table>

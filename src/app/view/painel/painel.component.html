@@ -1,6 +1,47 @@
-<div class="row">
-  <div class="col">
+<div class="row m-0">
+  <div class="col-auto navbar-bg">
     <app-navbar-painel></app-navbar-painel>
   </div>
-  <div class="col"></div>
+  <div class="col">
+    <div class="container my-5 mx-3">
+      <h3>Painel do usuário</h3>
+      <div class="row">
+        <div class="col">
+          <div class="cardDashBoard d-flex">
+            <div class="cardImgDashBoard" id="imgCard1">
+              <img src="../../../assets/adotados.png" alt="" class="imgCard">
+            </div>
+            <div class="cardBodyDashBoard">
+              <h4>Animais adotados: </h4>
+              <p>xx</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="cardDashBoard d-flex">
+            <div class="cardImgDashBoard" id="imgCard2">
+              <img src="../../../assets/adocao.png" alt="" class="imgCard">
+            </div>
+            <div class="cardBodyDashBoard">
+              <h4>Animais para adoção: </h4>
+              <p>xx</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="cardDashBoard d-flex">
+            <div class="cardImgDashBoard" id="imgCard3">
+              <img src="../../../assets/convite.png" alt="" class="imgCard">
+            </div>
+            <div class="cardBodyDashBoard">
+              <h4>Solicitação de adoção: </h4>
+              <p>xx</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3 class="pt-5">Ultimas solicitações enviadas</h3>
+      <app-tabela-animal-adocao></app-tabela-animal-adocao>
+    </div>
+  </div>
 </div>

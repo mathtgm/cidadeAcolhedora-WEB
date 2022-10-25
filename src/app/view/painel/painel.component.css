@@ -1,0 +1,34 @@
+.navbar-bg {
+  background-color: #F2F2F2;
+}
+
+.cardImgDashBoard {
+  padding: 20px;
+}
+
+.cardDashBoard {
+  background-color: #F2F2F2;
+
+}
+
+.cardBodyDashBoard {
+  padding: 20px;
+}
+
+.imgCard {
+  height: 100px;
+  width: 100px;
+  filter: brightness(0) invert(1);
+}
+
+#imgCard1 {
+  background-color: #D84854;
+}
+
+#imgCard2 {
+  background-color: #76BEC1;
+}
+
+#imgCard3 {
+  background-color: #F3A91C;
+}
