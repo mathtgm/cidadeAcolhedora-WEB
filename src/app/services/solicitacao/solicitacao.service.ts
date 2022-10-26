@@ -16,4 +16,8 @@ export class SolicitacaoService {
     return this.httpClient.post<Solicitacao[]>(this.apiURL + "adotante/limite/" + id_animal, {});
   }
 
+  listaSolicitacoesAdotante(id_adotante: bigint): Observable<Solicitacao[]> {
+    return this.httpClient.get<Solicitacao[]>(this.apiURL + "adotante/" + id_adotante, {});
+  }
+
 }
