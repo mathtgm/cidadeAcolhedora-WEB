@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Cor</th>
+      <th scope="col">Ação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let animal of listaAnimal">
+      <td>{{animal.nome}}</td>
+      <td>{{animal.tipo}}</td>
+      <td>{{animal.cor}}</td>
+      <td>!Ação!</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,6 +1,5 @@
 import { Animal } from './../../model/animal/animal.model';
 import { Observable } from 'rxjs';
-import { Solicitacao } from './../../model/solicitacao/solicitacao.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -22,6 +21,12 @@ export class AnimalService {
   procuraAnimalPorTutor(idTutor: bigint): Observable<Animal[]> {
 
     return this.httpClient.get<Animal[]>(this.apiURL + 'tutor/' + idTutor, {});
+
+  }
+
+  procurarAnimalPorDoadorNome(idDoador: bigint, animalNome: String): Observable<Animal[]> {
+
+    return this.httpClient.get<Animal[]>(this.apiURL + "nome/" + idDoador + "/" + animalNome, {});
 
   }
 

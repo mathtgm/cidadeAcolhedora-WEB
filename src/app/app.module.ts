@@ -13,6 +13,8 @@ import { PainelComponent } from './view/painel/painel.component';
 import { NavbarPainelComponent } from './components/navbar-painel/navbar-painel.component';
 import { TabelaAnimalAdocaoComponent } from './components/tabela-animal-adocao/tabela-animal-adocao.component';
 import { ConversorDataPipe } from './components/pipe/conversordata/conversor-data.pipe';
+import { AnimaisAdocaoComponent } from './view/animais-adocao/animais-adocao.component';
+import { TabelaAnimalAdocaoUsuarioComponent } from './components/tabela-animal-adocao-usuario/tabela-animal-adocao-usuario.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ConversorDataPipe } from './components/pipe/conversordata/conversor-dat
     PainelComponent,
     NavbarPainelComponent,
     TabelaAnimalAdocaoComponent,
-    ConversorDataPipe
+    ConversorDataPipe,
+    AnimaisAdocaoComponent,
+    TabelaAnimalAdocaoUsuarioComponent
   ],
   imports: [
     BrowserModule,

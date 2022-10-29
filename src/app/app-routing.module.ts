@@ -1,3 +1,4 @@
+import { AnimaisAdocaoComponent } from './view/animais-adocao/animais-adocao.component';
 import { PainelComponent } from './view/painel/painel.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'usuario/painel',
     component: PainelComponent
+  },
+  {
+    path: 'usuario/painel/adocao',
+    component: AnimaisAdocaoComponent
   }
 ];
 

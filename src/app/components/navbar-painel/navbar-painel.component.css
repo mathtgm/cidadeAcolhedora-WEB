@@ -8,3 +8,11 @@
   color: #F2F2F2;
   border-radius: 10px;
 }
+
+nav {
+  background-color: #F2F2F2;
+}
+
+.navbar {
+  align-items: start;
+}
