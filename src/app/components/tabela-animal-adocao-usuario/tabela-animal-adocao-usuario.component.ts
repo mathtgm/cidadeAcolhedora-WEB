@@ -33,9 +33,7 @@ export class TabelaAnimalAdocaoUsuarioComponent implements OnInit, OnChanges {
   }
 
   //Filtra por nome dos animais que estao para adocao do usuario
-  listarAnimaisAdocaoFiltro(): void{
-    alert(this.idDoador);
-    alert(this.pesquisaNomeAnimal);
+  listarAnimaisAdocaoFiltro(): void {
     if(this.pesquisaNomeAnimal === '') {
       this.listarAnimaisAdocao();
     } else {

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +15,7 @@ import { TabelaAnimalAdocaoComponent } from './components/tabela-animal-adocao/t
 import { ConversorDataPipe } from './components/pipe/conversordata/conversor-data.pipe';
 import { AnimaisAdocaoComponent } from './view/animais-adocao/animais-adocao.component';
 import { TabelaAnimalAdocaoUsuarioComponent } from './components/tabela-animal-adocao-usuario/tabela-animal-adocao-usuario.component';
+import { FormAnimalComponent } from './view/form-animal/form-animal.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +29,15 @@ import { TabelaAnimalAdocaoUsuarioComponent } from './components/tabela-animal-a
     TabelaAnimalAdocaoComponent,
     ConversorDataPipe,
     AnimaisAdocaoComponent,
-    TabelaAnimalAdocaoUsuarioComponent
+    TabelaAnimalAdocaoUsuarioComponent,
+    FormAnimalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

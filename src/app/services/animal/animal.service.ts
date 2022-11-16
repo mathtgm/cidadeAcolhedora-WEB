@@ -1,6 +1,7 @@
+import { AnimalImagem } from './../../model/animal/animalImagem.model';
 import { Animal } from './../../model/animal/animal.model';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpParams, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -26,7 +27,31 @@ export class AnimalService {
 
   procurarAnimalPorDoadorNome(idDoador: bigint, animalNome: String): Observable<Animal[]> {
 
-    return this.httpClient.get<Animal[]>(this.apiURL + "nome/" + idDoador + "/" + animalNome, {});
+    return this.httpClient.get<Animal[]>(this.apiURL + "nome/" + idDoador + "/" + animalNome);
+
+  }
+
+  procaraAnimalPorId(idAnimal: bigint): Observable<Animal> {
+
+    return this.httpClient.get<Animal>(this.apiURL + "id/" + idAnimal);
+
+  }
+
+  cadastrarAnimalAdocao(animal: Animal): Observable<Animal> {
+
+    return this.httpClient.post<Animal>(this.apiURL + "cadastrar/", animal);
+
+  }
+
+  cadastrarAnimalAdocaoImagem(animal: Animal, imagem: File): Observable<HttpEvent<AnimalImagem>> {
+    let formData: FormData = new FormData();
+    // Adiciona o arquivo mais a id do anmal a requisicao Http
+    formData.append("animal", animal.id_animal.toString());
+    formData.append("imagem", imagem);
+    console.log(animal);
+    let httpRequest = new HttpRequest('POST', this.apiURL + 'imagem/cadastrar/', formData);
+
+    return this.httpClient.request<AnimalImagem>(httpRequest);
 
   }
 

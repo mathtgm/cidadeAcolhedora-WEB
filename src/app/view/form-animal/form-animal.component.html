@@ -1,0 +1,76 @@
+<script>
+  const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+</script>
+<div class="row">
+  <div class="col-auto">
+    <app-navbar-painel></app-navbar-painel>
+  </div>
+  <div class="col p-5">
+    <div class="row-auto">
+      <h2>Cadastro de animal para adoção</h2>
+      <a routerLink=".." class="btn btn-outline-dark my-3"><i class="bi bi-box-arrow-left pe-2"></i>Volta/Cancelar</a>
+    </div>
+    <form method="POST" class="row" [formGroup]="formAnimal" enctype="multipart/form-data" (ngSubmit)="envioFormAnimal()">
+      <div class="row pb-3">
+        <div class="col">
+          <label class="form-label">Nome</label>
+          <input type="text" class="form-control" formControlName="nome">
+        </div>
+        <div class="col">
+          <label class="form-label">Idade</label>
+          <input type="number" class="form-control" formControlName="idade">
+        </div>
+        <div class="col">
+          <label class="form-label">Sexo</label>
+          <select class="form-control" formControlName="sexo">
+            <option value="Macho">Macho</option>
+            <option value="Femea">Femea</option>
+          </select>
+        </div>
+        <div class="col">
+          <label class="form-label">Tipo de animal</label>
+          <select class="form-control" formControlName="tipo">
+            <option value="Cachorro(a)">Cachorro(a)</option>
+            <option value="Gato(a)">Gato(a)</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label class="form-label">Nível de Carinho (1 á 5)</label>
+          <input type="number" min="1" max="5" class="form-control" (change)="lvlCarinho()" formControlName="nivelCarinho">
+          <div id="carinhoMsg"></div>
+        </div>
+        <div class="col">
+          <label class="form-label">Nível de Sociavel (1 á 5)</label>
+          <input type="number" min="1" max="5" class="form-control" (change)="lvlSociavel()" formControlName="nivelSociavel">
+          <div id="sociavelMsg"></div>
+        </div>
+        <div class="col">
+          <label class="form-label">Nível de Brincadeira (1 á 5)</label>
+          <input type="number" min="1" max="5" class="form-control" (change)="lvlBrincadeira()" formControlName="nivelBrincalhao">
+          <div id="brincalhaoMsg"></div>
+        </div>
+      </div>
+      <div class="row pb-3">
+        <div class="col">
+          <label for="formFileMultiple" class="form-label">Imagens</label>
+           <input class="form-control" type="file" id="formFileMultiple" accept="image/png,image/jpg,image/jpeg" (change)="setImagem($event)" multiple>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label class="form-label">Descrição do animal</label>
+          <textarea class="form-control" cols="30" rows="3" maxlength="200" formControlName="descricao" placeholder="Fale um pouco do animalzinho para adoção..."></textarea>
+        </div>
+      </div>
+      <div class="row-auto">
+        <div class="col">
+          <button type="submit" class="btn btn-success">Cadastrar!</button>
+        </div>
+      </div>
+    </form>
+    <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+  </div>
+</div>

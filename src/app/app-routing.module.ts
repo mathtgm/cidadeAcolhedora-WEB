@@ -1,3 +1,4 @@
+import { FormAnimalComponent } from './view/form-animal/form-animal.component';
 import { AnimaisAdocaoComponent } from './view/animais-adocao/animais-adocao.component';
 import { PainelComponent } from './view/painel/painel.component';
 import { NgModule } from '@angular/core';
@@ -21,6 +22,16 @@ const routes: Routes = [
   {
     path: 'usuario/painel/adocao',
     component: AnimaisAdocaoComponent
+  },
+  {
+    path: 'usuario/painel/adocao/cadastro/:id',
+    component: FormAnimalComponent,
+
+  },
+  {
+    path: 'usuario/painel/adocao/cadastro',
+    component: FormAnimalComponent,
+
   }
 ];
 
