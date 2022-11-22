@@ -1,6 +1,6 @@
 import { AnimalImagem } from './../../model/animal/animalImagem.model';
 import { Animal } from './../../model/animal/animal.model';
-import { Observable } from 'rxjs';
+import { Observable, subscribeOn } from 'rxjs';
 import { HttpClient, HttpEvent, HttpParams, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -43,15 +43,31 @@ export class AnimalService {
 
   }
 
-  cadastrarAnimalAdocaoImagem(animal: Animal, imagem: File): Observable<HttpEvent<AnimalImagem>> {
+  atualizarAnimalAdocao(animal: Animal): Observable<Animal> {
+
+    return this.httpClient.put<Animal>(this.apiURL + "atualizar/", animal)
+
+  }
+
+  cadastrarAnimalAdocaoImagem(animal: Animal, imagem: File): Observable<any> {
     let formData: FormData = new FormData();
-    // Adiciona o arquivo mais a id do anmal a requisicao Http
+    // Adiciona o arquivo mais a id do animal a requisicao Http
     formData.append("animal", animal.id_animal.toString());
     formData.append("imagem", imagem);
-    console.log(animal);
-    let httpRequest = new HttpRequest('POST', this.apiURL + 'imagem/cadastrar/', formData);
 
-    return this.httpClient.request<AnimalImagem>(httpRequest);
+    return this.httpClient.post(this.apiURL + 'imagem/cadastrar/', formData);
+
+  }
+
+  procurarAnimalAdocaoImagem(nome_imagem: String): Observable<any> {
+
+    return this.httpClient.get(this.apiURL + 'imagem/' + nome_imagem);
+
+  }
+
+  removerAnimalImagem(imagem: AnimalImagem): Observable<Object> {
+
+    return this.httpClient.delete(this.apiURL + 'imagem/remover/', {body: imagem});
 
   }
 

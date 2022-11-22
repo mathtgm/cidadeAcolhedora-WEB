@@ -1,32 +1,41 @@
-<script>
-  const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
-</script>
-<div class="row">
+<div class="row g-0">
   <div class="col-auto">
     <app-navbar-painel></app-navbar-painel>
   </div>
   <div class="col p-5">
-    <div class="row-auto">
-      <h2>Cadastro de animal para adoção</h2>
-      <a routerLink=".." class="btn btn-outline-dark my-3"><i class="bi bi-box-arrow-left pe-2"></i>Volta/Cancelar</a>
+    <h2 *ngIf="idAnimal === null">Cadastro de animal para adoção</h2>
+    <h2 *ngIf="idAnimal !== null">Alterar dados do Animal</h2>
+    <div class="alert alert-danger" role="alert" *ngIf="!msgStatus && msg !== ''">
+      {{msg}}
     </div>
-    <form method="POST" class="row" [formGroup]="formAnimal" enctype="multipart/form-data" (ngSubmit)="envioFormAnimal()">
+    <div class="alert alert-success" role="alert" *ngIf="msgStatus && msg !== ''">
+      {{msg}}
+    </div>
+    <form method="POST" class="row" [formGroup]="formAnimal" enctype="multipart/form-data"
+      (ngSubmit)="envioFormAnimal()">
       <div class="row pb-3">
         <div class="col">
           <label class="form-label">Nome</label>
           <input type="text" class="form-control" formControlName="nome">
+          <div class="alert alert-danger mt-1" *ngIf="formControl['nome'].errors?.['required'] && submited">Por favor
+            preencha o campo nome</div>
         </div>
         <div class="col">
           <label class="form-label">Idade</label>
           <input type="number" class="form-control" formControlName="idade">
+          <div class="alert alert-danger mt-1" *ngIf="formControl['idade'].errors?.['required'] && submited">Por favor
+            preencha o campo idade</div>
         </div>
+      </div>
+      <div class="row pb-3">
         <div class="col">
           <label class="form-label">Sexo</label>
           <select class="form-control" formControlName="sexo">
             <option value="Macho">Macho</option>
             <option value="Femea">Femea</option>
           </select>
+          <div class="alert alert-danger mt-1" *ngIf="formControl['sexo'].errors?.['required'] && submited">Por favor
+            selecione uma opção do campo sexo</div>
         </div>
         <div class="col">
           <label class="form-label">Tipo de animal</label>
@@ -34,43 +43,94 @@ const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstra
             <option value="Cachorro(a)">Cachorro(a)</option>
             <option value="Gato(a)">Gato(a)</option>
           </select>
+          <div class="alert alert-danger mt-1" *ngIf="formControl['tipo'].errors?.['required'] && submited">Por favor
+            selecione uma opção do campo tipo de animal</div>
+        </div>
+        <div class="col">
+          <label class="form-label">Cor</label>
+          <select class="form-control" formControlName="cor">
+            <option value="Preto(a)">Preto(a)</option>
+            <option value="Laranja">Laranja</option>
+            <option value="Branco(a)">Branco(a)</option>
+            <option value="Preto(a) e Branco(a)">Preto(a) e Branco(a)</option>
+            <option value="Branco e Laranja">Branco e Laranja</option>
+            <option value="Tricolor (Branco, Preto e Laranja)">Tricolor (Branco, Preto e Laranja)</option>
+          </select>
+          <div class="alert alert-danger mt-1" *ngIf="formControl['cor'].errors?.['required'] && submited">Por favor
+            selecione uma opção cor</div>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <label class="form-label">Nível de Carinho (1 á 5)</label>
-          <input type="number" min="1" max="5" class="form-control" (change)="lvlCarinho()" formControlName="nivelCarinho">
+          <input type="number" min="1" max="5" class="form-control" (change)="lvlCarinho()"
+            formControlName="nivelCarinho">
+          <div class="alert alert-danger mt-1" *ngIf="formControl['nivelCarinho'].errors?.['min'] && submited">Valor do
+            carinho abaixo do permitido, por favor informe um nível de carinho entre 1 e 5</div>
+          <div class="alert alert-danger mt-1" *ngIf="formControl['nivelCarinho'].errors?.['max'] && submited">Valor do
+            carinho acima do permitido, por favor informe um nível de carinho entre 1 e 5</div>
           <div id="carinhoMsg"></div>
         </div>
         <div class="col">
           <label class="form-label">Nível de Sociavel (1 á 5)</label>
-          <input type="number" min="1" max="5" class="form-control" (change)="lvlSociavel()" formControlName="nivelSociavel">
+          <input type="number" min="1" max="5" class="form-control" (change)="lvlSociavel()"
+            formControlName="nivelSociavel">
+          <div class="alert alert-danger mt-1" *ngIf="formControl['nivelSociavel'].errors?.['min'] && submited">Valor do
+            carinho abaixo do permitido, por favor informe um nível de socialvel entre 1 e 5</div>
+          <div class="alert alert-danger mt-1" *ngIf="formControl['nivelSociavel'].errors?.['max'] && submited">Valor do
+            carinho acima do permitido, por favor informe um nível de socialvel entre 1 e 5</div>
           <div id="sociavelMsg"></div>
         </div>
         <div class="col">
           <label class="form-label">Nível de Brincadeira (1 á 5)</label>
-          <input type="number" min="1" max="5" class="form-control" (change)="lvlBrincadeira()" formControlName="nivelBrincalhao">
+          <input type="number" min="1" max="5" class="form-control" (change)="lvlBrincadeira()"
+            formControlName="nivelBrincalhao">
+          <div class="alert alert-danger mt-1" *ngIf="formControl['nivelBrincalhao'].errors?.['min'] && submited">Valor
+            do carinho abaixo do permitido, por favor informe um nível de brincadeira entre 1 e 5</div>
+          <div class="alert alert-danger mt-1" *ngIf="formControl['nivelBrincalhao'].errors?.['max'] && submited">Valor
+            do carinho acima do permitido, por favor informe um nível de brincadeira entre 1 e 5</div>
           <div id="brincalhaoMsg"></div>
         </div>
       </div>
       <div class="row pb-3">
         <div class="col">
-          <label for="formFileMultiple" class="form-label">Imagens</label>
-           <input class="form-control" type="file" id="formFileMultiple" accept="image/png,image/jpg,image/jpeg" (change)="setImagem($event)" multiple>
+          <label for="formFileMultiple" class="form-label">Adicionar imagem</label>
+          <input class="form-control" type="file" id="formFileMultiple" accept="image/png,image/jpg,image/jpeg"
+            (change)="setImagem($event)" multiple>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <label class="form-label">Descrição do animal</label>
-          <textarea class="form-control" cols="30" rows="3" maxlength="200" formControlName="descricao" placeholder="Fale um pouco do animalzinho para adoção..."></textarea>
+          <textarea class="form-control" cols="30" rows="3" maxlength="200" formControlName="descricao"
+            placeholder="Fale um pouco do animalzinho para adoção..."></textarea>
+            <div class="alert alert-danger mt-1" *ngIf="formControl['descricao'].errors?.['required'] && submited">Por favor
+              preenchar o campo descrição</div>
+        </div>
+
+      </div>
+      <div class="row align-items-center pt-3" *ngIf="listaImagemAnimal.length > 0">
+        <h2>Lista de imagem enviadas</h2>
+        <hr>
+        <div class="col-auto" *ngFor="let imagem of listaImagemAnimal">
+          <div class="card-container">
+            <img class="img-card shadow" [src]="urlImage.concat(imagem.imagePath.toString())">
+            <button type="button" class="btn-close" aria-label="Close" (click)="excluirImagem(imagem)"></button>
+          </div>
         </div>
       </div>
-      <div class="row-auto">
-        <div class="col">
-          <button type="submit" class="btn btn-success">Cadastrar!</button>
+
+      <div class="row my-3">
+        <div class="col-auto pe-1">
+          <button type="submit" class="btn btn-success"><i class="bi bi-pencil-fill pe-1"></i>Cadastrar/Alterar</button>
+        </div>
+        <div class="col-auto px-1">
+          <button class="btn btn-danger" type="reset"><i class="bi bi-trash-fill pe-1"></i>Limpar campos</button>
+        </div>
+        <div class="col-auto px-1">
+          <a routerLink="../.." class="btn btn-outline-dark"><i class="bi bi-box-arrow-left pe-2"></i>Volta/Cancelar</a>
         </div>
       </div>
     </form>
-    <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
   </div>
 </div>

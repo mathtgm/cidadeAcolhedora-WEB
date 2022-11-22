@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +9,6 @@ export class AppComponent {
 
 constructor() {}
 
-  title = 'Cidade Acolhedora';
+  title = 'Cidade acolhedora';
+
 }

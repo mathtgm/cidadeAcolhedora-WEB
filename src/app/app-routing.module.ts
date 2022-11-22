@@ -24,12 +24,12 @@ const routes: Routes = [
     component: AnimaisAdocaoComponent
   },
   {
-    path: 'usuario/painel/adocao/cadastro/:id',
+    path: 'usuario/painel/adocao/animal/:id',
     component: FormAnimalComponent,
 
   },
   {
-    path: 'usuario/painel/adocao/cadastro',
+    path: 'usuario/painel/adocao/cadastro/animal',
     component: FormAnimalComponent,
 
   }
