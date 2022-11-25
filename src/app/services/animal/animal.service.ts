@@ -43,6 +43,12 @@ export class AnimalService {
 
   }
 
+  excluirAnimalAdocao(id_animal: bigint): Observable<Animal> {
+
+    return this.httpClient.delete<Animal>(this.apiURL + "remover/" + id_animal);
+
+  }
+
   atualizarAnimalAdocao(animal: Animal): Observable<Animal> {
 
     return this.httpClient.put<Animal>(this.apiURL + "atualizar/", animal)

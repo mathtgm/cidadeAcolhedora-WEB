@@ -1,18 +1,32 @@
-<table class="table">
+<table class="table table-sm my-3 table-striped table-hover">
   <thead>
     <tr>
       <th scope="col">Nome</th>
       <th scope="col">Tipo</th>
       <th scope="col">Cor</th>
+      <th scope="col">Sexo</th>
+      <th scope="col">Idade</th>
       <th scope="col">Ação</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="table-group-divider">
     <tr *ngFor="let animal of listaAnimal">
       <td>{{animal.nome}}</td>
       <td>{{animal.tipo}}</td>
       <td>{{animal.cor}}</td>
-      <td>!Ação!</td>
+      <td>{{animal.sexo}}</td>
+      <td>{{animal.idade}} Ano(s)</td>
+      <td>
+        <div class="dropdown">
+          <button class="btn p-0 text-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Ação
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item text-success" (click)="editarAnimal(animal.id_animal)"><i class="bi bi-pen me-1"></i>Editar animal</a></li>
+            <li><a class="dropdown-item text-danger" (click)="removerAnimal(animal.id_animal)"><i class="bi bi-trash-fill me-1"></i>Excluir animal</a></li>
+          </ul>
+        </div>
+      </td>
     </tr>
   </tbody>
 </table>

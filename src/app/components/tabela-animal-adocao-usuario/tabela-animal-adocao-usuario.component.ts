@@ -1,6 +1,7 @@
 import { Animal } from './../../model/animal/animal.model';
 import { AnimalService } from './../../services/animal/animal.service';
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tabela-animal-adocao-usuario',
@@ -10,10 +11,13 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 export class TabelaAnimalAdocaoUsuarioComponent implements OnInit, OnChanges {
 
   idDoador: bigint = JSON.parse(localStorage.getItem("userInfo")!).id_usuario;
-  listaAnimal: Animal[] = [];
+  listaAnimal: Array<Animal> = [];
+  listaAnimalAuxiliar: Array<Animal> = [];
+
+  @Output() outPutMsg = new EventEmitter<{msgStatus: boolean, msg: String}>();
   @Input() pesquisaNomeAnimal: String = '';
 
-  constructor(private animalService: AnimalService) { }
+  constructor(private animalService: AnimalService, private router: Router) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if(!changes["pesquisaNomeAnimal"].isFirstChange()) {
@@ -29,18 +33,40 @@ export class TabelaAnimalAdocaoUsuarioComponent implements OnInit, OnChanges {
   listarAnimaisAdocao(): void {
     this.animalService.procuraAnimalPorDoador(this.idDoador).subscribe(result => {
       this.listaAnimal = result;
+      this.listaAnimalAuxiliar = result;
     });
   }
 
   //Filtra por nome dos animais que estao para adocao do usuario
   listarAnimaisAdocaoFiltro(): void {
     if(this.pesquisaNomeAnimal === '') {
-      this.listarAnimaisAdocao();
+      this.listaAnimal = this.listaAnimalAuxiliar;
     } else {
-      this.animalService.procurarAnimalPorDoadorNome(this.idDoador, this.pesquisaNomeAnimal).subscribe(result => {
-        this.listaAnimal = result;
+      this.listaAnimal = this.listaAnimalAuxiliar.filter(value => {
+        return value.nome.toLowerCase().includes(this.pesquisaNomeAnimal.toString().toLowerCase());
       });
     }
+  }
+
+  removerAnimal(id_animal: bigint): void {
+
+    this.animalService.excluirAnimalAdocao(id_animal).subscribe({
+      next: (value) => {
+        this.listaAnimalAuxiliar.splice(this.listaAnimalAuxiliar.findIndex(animal => {return animal.id_animal === id_animal}), 1)
+        this.listaAnimal = this.listaAnimalAuxiliar;
+        this.outPutMsg.emit({msgStatus: true, msg: "Animal removido com sucesso!"});
+      },
+      error: (error) => {
+        this.outPutMsg.emit({msgStatus: false, msg: "Erro ao remover o animal, por favor entre em contato com o administrador"});
+      }
+    });
+
+  }
+
+  editarAnimal(id_animal: bigint): void {
+
+    this.router.navigate(['usuario/painel/adocao/animal/' + id_animal]);
+
   }
 
 }
