@@ -16,6 +16,8 @@ import { ConversorDataPipe } from './components/pipe/conversordata/conversor-dat
 import { AnimaisAdocaoComponent } from './view/animais-adocao/animais-adocao.component';
 import { TabelaAnimalAdocaoUsuarioComponent } from './components/tabela-animal-adocao-usuario/tabela-animal-adocao-usuario.component';
 import { FormAnimalComponent } from './view/form-animal/form-animal.component';
+import { CardAnimalAdocaoComponent } from './components/card-animal-adocao/card-animal-adocao.component';
+import { ListaAnimalAdocaoComponent } from './view/lista-animal-adocao/lista-animal-adocao.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { FormAnimalComponent } from './view/form-animal/form-animal.component';
     ConversorDataPipe,
     AnimaisAdocaoComponent,
     TabelaAnimalAdocaoUsuarioComponent,
-    FormAnimalComponent
+    FormAnimalComponent,
+    CardAnimalAdocaoComponent,
+    ListaAnimalAdocaoComponent
   ],
   imports: [
     BrowserModule,

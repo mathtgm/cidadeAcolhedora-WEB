@@ -1,0 +1,19 @@
+<div class="card shadow" style="width: 20rem;">
+  <img class="card-img-top rounded-circle shadow" *ngIf="animal.imagem.length > 0"
+    [src]="apiURL.concat(animal.imagem[0].imagePath.toString())">
+  <img class="card-img-top rounded-circle shadow" *ngIf="animal.imagem.length === 0"
+    src="../../../assets/logo-branco-cidadeAcolhedora.png">
+  <div class="card-body">
+    <h5 class="card-title">{{animal.nome}}</h5>
+    <p class="card-text mb-1">{{animal.descricao.slice(0,149)}}...</p>
+    <p class="text-muted"><i class="bi bi-geo-alt-fill me-1"></i>{{animal.idCidade.nome}} - {{animal.idEstado.nome}}</p>
+    <hr>
+    <div class="d-flex flex-row justify-content-center">
+      <span class="badge bg-carinho mx-1">Carinho: {{animal.nivelCarinho}}</span>
+      <span class="badge bg-brincadeira mx-1">Brincadeira: {{animal.nivelBrincalhao}}</span>
+      <span class="badge bg-sociavel mx-1">Sociavel: {{animal.nivelSociavel}}</span>
+    </div>
+    <hr>
+    <a href="#" class="btn btn-info">Mais informações</a>
+  </div>
+</div>

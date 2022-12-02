@@ -1,3 +1,4 @@
+import { ListaAnimalAdocaoComponent } from './view/lista-animal-adocao/lista-animal-adocao.component';
 import { FormAnimalComponent } from './view/form-animal/form-animal.component';
 import { AnimaisAdocaoComponent } from './view/animais-adocao/animais-adocao.component';
 import { PainelComponent } from './view/painel/painel.component';
@@ -8,7 +9,7 @@ import { LoginComponent } from './view/login/login.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: HomeComponent
   },
   {
@@ -25,13 +26,15 @@ const routes: Routes = [
   },
   {
     path: 'usuario/painel/adocao/animal/:id',
-    component: FormAnimalComponent,
-
+    component: FormAnimalComponent
   },
   {
     path: 'usuario/painel/adocao/cadastro/animal',
-    component: FormAnimalComponent,
-
+    component: FormAnimalComponent
+  },
+  {
+    path: 'animal/adocao',
+    component: ListaAnimalAdocaoComponent
   }
 ];
 

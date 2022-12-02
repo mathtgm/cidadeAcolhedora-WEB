@@ -16,3 +16,9 @@ nav {
 .navbar {
   align-items: start;
 }
+
+.active {
+  color: white !important;
+  border-radius: 10px;
+  background-color: #93C390;
+}

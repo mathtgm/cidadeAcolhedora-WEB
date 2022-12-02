@@ -12,7 +12,6 @@ export interface Animal {
   idEstado: Estado;
   idTutor: Usuario;
   idDoador: Usuario;
-  uploadImagem: File[];
   imagem: AnimalImagem[];
   sexo: String;
   idade: number;

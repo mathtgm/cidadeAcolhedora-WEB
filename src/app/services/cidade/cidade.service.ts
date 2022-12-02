@@ -15,4 +15,16 @@ export class CidadeService {
   getCidade(id_cidade: bigint): Observable<Cidade> {
     return this.httpClient.get<Cidade>(this.apiURL + id_cidade.toString(), {});
   }
+
+  listarCidades(): Observable<Cidade[]> {
+
+    return this.httpClient.get<Cidade[]>(this.apiURL.toString());
+
+  }
+
+  listarCidadesEstados(id_estado: bigint): Observable<Cidade[]> {
+
+    return this.httpClient.get<Cidade[]>(this.apiURL + 'estado/' + id_estado);
+
+  }
 }

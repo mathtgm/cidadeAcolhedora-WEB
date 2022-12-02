@@ -1,0 +1,15 @@
+.filters h3{
+  position: absolute;
+  top: -18px;
+  background-color: white;
+  width: auto;
+}
+
+.filters {
+  position: relative;
+}
+
+.titulo {
+  color: white;
+  background-color: #469941;
+}

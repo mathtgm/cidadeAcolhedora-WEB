@@ -11,15 +11,21 @@
       <ul class="navbar-nav d-flex flex-column flex-wrap ps-2 w-100">
         <hr>
         <li class="nav-item">
-          <a class="nav-link color-darkgreen" routerLink="/usuario/painel/adocao"><i class="bi bi-bag-heart-fill pe-2"></i>Animais para adoção</a>
+          <a class="nav-link color-darkgreen" routerLink="/usuario/painel" routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }"><i class="bi bi-house-door-fill pe-2"></i>Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link color-darkgreen" href="#"><i class="bi bi-balloon-heart-fill pe-2"></i>Animais Adotados</a>
+          <a class="nav-link color-darkgreen" routerLink="/usuario/painel/adocao" routerLinkActive="active"><i class="bi bi-bag-heart-fill pe-2"></i>Animais para adoção</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link color-darkgreen" href="#"><i class="bi bi-pencil-square pe-2"></i>Editar perfil</a>
+          <a class="nav-link color-darkgreen" href="#" routerLinkActive="active"><i class="bi bi-balloon-heart-fill pe-2"></i>Animais Adotados</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link color-darkgreen" href="#" routerLinkActive="active"><i class="bi bi-pencil-square pe-2"></i>Editar perfil</a>
         </li>
         <hr>
+        <li class="nav-item">
+          <a class="nav-link color-darkgreen" routerLink="/home" routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }"><i class="bi bi-house-door-fill pe-2"></i>Página inicial</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link color-darkgreen" (click)="saidaUsuario()"><i class="bi bi-box-arrow-right pe-2"></i>Sair</a>
         </li>

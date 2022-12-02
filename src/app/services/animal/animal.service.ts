@@ -1,7 +1,7 @@
 import { AnimalImagem } from './../../model/animal/animalImagem.model';
 import { Animal } from './../../model/animal/animal.model';
-import { Observable, subscribeOn } from 'rxjs';
-import { HttpClient, HttpEvent, HttpParams, HttpRequest } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -74,6 +74,12 @@ export class AnimalService {
   removerAnimalImagem(imagem: AnimalImagem): Observable<Object> {
 
     return this.httpClient.delete(this.apiURL + 'imagem/remover/', {body: imagem});
+
+  }
+
+  listaAnimaisAdocao(): Observable<Animal[]> {
+
+    return this.httpClient.get<Animal[]>(this.apiURL.concat("todos"));
 
   }
 

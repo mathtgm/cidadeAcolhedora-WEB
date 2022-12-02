@@ -1,0 +1,64 @@
+<app-navbar></app-navbar>
+<h2 class="text-center py-3 titulo">Lista de animais para adoção</h2>
+<div class="container bg-light p-5">
+  <div class="filters">
+    <div class="row border border-1 rounded px-3">
+      <h3 class="bg-light">Filtros: </h3>
+      <form class="container my-5" [formGroup]="formFiltro">
+        <div class="row">
+          <div class="col">
+            <label for="tipo">Tipo: </label>
+            <select name="tipo" id="tipo" class="form-select" (change)="filtrarInformacoes()" formControlName="tipo">
+              <option value="0" selected>:: Todos ::</option>
+              <option *ngFor="let tipo of enumTipo" value="{{tipo}}">{{tipo}}</option>
+            </select>
+          </div>
+          <div class="col">
+            <label for="cor">Cor: </label>
+            <select name="cor" id="cor" class="form-select" (change)="filtrarInformacoes()" formControlName="cor">
+              <option value="0" selected>:: Todos ::</option>
+              <option *ngFor="let cor of enumCor" value="{{cor}}">{{cor}}</option>
+            </select>
+          </div>
+          <div class="col">
+            <label for="estado">Estado: </label>
+            <select class="form-select" id="estado" (change)="[listarCidades($event), filtrarInformacoes()]" formControlName="estado">
+              <option value="0" selected>:: Todos ::</option>
+              <option *ngFor="let estado of listaEstados" value="{{estado.id_estado}}">{{estado.nome}}</option>
+            </select>
+          </div>
+          <div class="col">
+            <label for="cidade">Cidade: </label>
+            <select class="form-select" id="cidade" (change)="filtrarInformacoes()" formControlName="cidade">
+              <option value="0" selected>:: Todos ::</option>
+              <option *ngFor="let cidade of listaCidades" value="{{cidade.id_cidade}}">{{cidade.nome}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col">
+            <label for="carinho">Nível de Carinho: </label>
+            <input id="carinho" class="form-control" type="number" min="0" max="5" (input)="filtrarInformacoes()" formControlName="lvlCarinho">
+          </div>
+          <div class="col">
+            <label for="sociavel">Nível de Sociável: </label>
+            <input id="socialvel" class="form-control" type="number" min="0" max="5" (input)="filtrarInformacoes()" formControlName="lvlSociavel">
+          </div>
+          <div class="col">
+            <label for="brincadeira">Nível de Brincadeira:</label>
+            <input id="brincedeira" class="form-control" type="number" min="0" max="5" (input)="filtrarInformacoes()" formControlName="lvlBrincadeira">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="d-flex flex-row flex-wrap p-0 justify-content-start mt-4">
+      <div *ngFor="let animal of listaAnimais" class="my-3">
+        <app-card-animal-adocao [animal]="animal"></app-card-animal-adocao>
+      </div>
+    </div>
+  </div>
+
+</div>
