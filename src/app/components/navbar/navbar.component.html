@@ -9,7 +9,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center align-items-center">
-              <li class="navbar-item" routerLinkActive="active"><a [routerLink]="['/home']" class="nav-link px-4"><i class="bi bi-house-door-fill px-1 color-darkgreen"></i>PÁGINA INICIAL</a></li>
+              <li class="navbar-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="" class="nav-link px-4"><i class="bi bi-house-door-fill px-1 color-darkgreen"></i>PÁGINA INICIAL</a></li>
               <li class="navbar-item" routerLinkActive="active"><a [routerLink]="['/animal/adocao']" class="nav-link px-4"><i class="bi bi-search-heart-fill px-1 color-darkgreen"></i>ADOTAR</a></li>
               <li class="navbar-item"><a [routerLink]="['/home']" class="nav-link px-4 navbar-brand"><img src="../../assets/logo-cidadeAcolhedora.png" alt="Logo Cidade Acolhedora" id="img-navbar"></a></li>
               <li class="navbar-item" routerLinkActive="active"><a href="#" class="nav-link px-4"><i class="bi bi-megaphone-fill px-1 color-darkgreen"></i>FALE CONOSCO</a></li>

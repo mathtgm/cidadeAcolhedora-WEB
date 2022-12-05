@@ -1,3 +1,4 @@
+import { AnimalAdocaoInfoComponent } from './view/animal-adocao-info/animal-adocao-info.component';
 import { ListaAnimalAdocaoComponent } from './view/lista-animal-adocao/lista-animal-adocao.component';
 import { FormAnimalComponent } from './view/form-animal/form-animal.component';
 import { AnimaisAdocaoComponent } from './view/animais-adocao/animais-adocao.component';
@@ -9,7 +10,7 @@ import { LoginComponent } from './view/login/login.component';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: HomeComponent
   },
   {
@@ -34,7 +35,11 @@ const routes: Routes = [
   },
   {
     path: 'animal/adocao',
-    component: ListaAnimalAdocaoComponent
+    component: ListaAnimalAdocaoComponent,
+  },
+  {
+    path: 'animal/adocao/:id',
+    component: AnimalAdocaoInfoComponent
   }
 ];
 
