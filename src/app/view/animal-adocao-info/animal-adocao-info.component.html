@@ -1,3 +1,126 @@
-<div *ngFor="let imagem of animal.imagem">
-    {{imagem.imagePath}}
+<app-navbar></app-navbar>
+<div class="row g-0 p-5 d-flex">
+    <div class="col-md">
+        <div id="carouselControls" class="carousel slide mb-sm-3" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div *ngFor="let imagem of animal?.imagem; index as i">
+                    <div class="carousel-item" [ngClass]="{'active': i === 0}">
+                        <img [src]="apiURL.concat(imagem.imagePath.toString())" class="d-block w-100">
+                    </div>
+                </div>
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Imagem anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próxima imagem</span>
+            </button>
+        </div>
+    </div>
+    <div class="col mx-3">
+        <div class="card shadow">
+            <div class="card-title">
+                <h2>
+                    {{animal?.nome}}
+                </h2>
+            </div>
+            <div class="card-body">
+                <h3>Sobre o animalzinho:</h3>
+                <p>{{animal?.descricao}}</p>
+            </div>
+            <div class="card-title">
+                <span class="h2">Informações do animalzinho</span>
+            </div>
+            <div class="card-body">
+                <div class="row d-flex justify-content-around g-0">
+                    <div class="col-auto me-3">
+                        <p class="d-flex align-items-center"><img src="../../../assets/icons/tipo.png"
+                                class="icon-info me-2" alt="Tipo de animal">Tipo: {{animal?.tipo}}</p>
+                    </div>
+                    <div class="col-auto me-3">
+                        <p class="d-flex align-items-center"><img src="../../../assets/icons/cor.png"
+                                class="icon-info me-2" alt="Cor do animal">Cor: {{animal?.cor}}</p>
+                    </div>
+                    <div class="col-auto me-3">
+                        <p class="d-flex align-items-center"><img src="../../../assets/icons/sexo.png"
+                                class="icon-info me-2" alt="Sexo do animal">Tipo: {{animal?.sexo}}</p>
+                    </div>
+                    <div class="col-auto me-3">
+                        <p class="d-flex align-items-center"><img src="../../../assets/icons/idade.png"
+                                class="icon-info me-2" alt="Idade do animal">Idade: {{animal?.idade}} Ano(s)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-title">
+                <span class="h2">Nível do animal</span>
+            </div>
+            <div class="card-body">
+                <div class="mb-2">
+                    <p class="lvl-title">Nível de carinho:</p>
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <img src="../../../assets/icons/carinho.png" alt="Coração" class="lvl-imagem">
+                        </div>
+                        <div class="col">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped bg-danger" role="progressbar"
+                                    [style.width]="((animal?.nivelCarinho!*100)/5).toString().concat('%')">
+                                    {{animal?.nivelCarinho}}/5</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <p class="lvl-title">Nível de socialização:</p>
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <img src="../../../assets/icons/sociavel.png" alt="Gato sociavel" class="lvl-imagem">
+                        </div>
+                        <div class="col">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped" role="progressbar"
+                                    [style.width]="((animal?.nivelSociavel!*100)/5).toString().concat('%')">
+                                    {{animal?.nivelSociavel}}/5</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <p class="lvl-title">Nível de brincadeira:</p>
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <img src="../../../assets/icons/brincalhao.png" alt="Cachorro brincando" class="lvl-imagem">
+                        </div>
+                        <div class="col">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar"
+                                    [style.width]="((animal?.nivelBrincalhao!*100)/5).toString().concat('%')">
+                                    {{animal?.nivelBrincalhao}}/5</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-title">
+                <span class="h2">Informações do doador</span>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <p class="d-flex align-items-center"><img src="../../../assets/icons/usuario.png" alt="Usuário"
+                                class="icon-info me-2"><span class="fw-bold pe-2">Nome: </span>{{animal?.idDoador!.nome}}</p>
+                    </div>
+                    <div class="col">
+                        <p class="d-flex align-items-center"><img src="../../../assets/icons/pin-loc.png"
+                                alt="Pino de localização" class="icon-info me-2"><span class="fw-bold pe-2">Localização:</span>
+                            {{animal?.idDoador!.cidade.nome}} - {{animal?.idDoador!.estado.nome}}</p>
+                    </div>
+                </div>
+                <button class="btn btn-success w-100" *ngIf="animal?.idTutor !== undefined">Preencher o formulário de adoção !</button>
+            </div>
+        </div>
+    </div>
 </div>

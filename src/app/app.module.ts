@@ -18,6 +18,7 @@ import { TabelaAnimalAdocaoUsuarioComponent } from './components/tabela-animal-a
 import { FormAnimalComponent } from './view/form-animal/form-animal.component';
 import { CardAnimalAdocaoComponent } from './components/card-animal-adocao/card-animal-adocao.component';
 import { ListaAnimalAdocaoComponent } from './view/lista-animal-adocao/lista-animal-adocao.component';
+import { AnimalAdocaoInfoComponent } from './view/animal-adocao-info/animal-adocao-info.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ListaAnimalAdocaoComponent } from './view/lista-animal-adocao/lista-ani
     TabelaAnimalAdocaoUsuarioComponent,
     FormAnimalComponent,
     CardAnimalAdocaoComponent,
-    ListaAnimalAdocaoComponent
+    ListaAnimalAdocaoComponent,
+    AnimalAdocaoInfoComponent
   ],
   imports: [
     BrowserModule,

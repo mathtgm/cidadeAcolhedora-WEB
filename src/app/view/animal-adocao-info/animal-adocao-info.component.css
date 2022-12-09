@@ -1,0 +1,41 @@
+.card-body p{
+    text-align: justify;
+}
+
+.carousel {
+    border: 10px solid #5fba5b;
+    border-radius: 10px;
+    background-color: #5fba5b;
+}
+
+.carousel img {
+    object-fit: contain;
+    aspect-ratio: 1 / 1;
+}
+
+.card-title {
+    padding: 20px;
+    background-color: #5fba5b;
+    color: white;
+}
+
+.card {
+    overflow: hidden;
+}
+
+.icon-info {
+    width: 25px;
+    height: auto;
+    opacity: 40%;
+}
+
+.lvl-title {
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 18px;
+}
+
+.lvl-imagem {
+    height: 50px;
+    width: auto;
+}
