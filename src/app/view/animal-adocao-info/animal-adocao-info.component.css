@@ -2,13 +2,13 @@
     text-align: justify;
 }
 
-.carousel {
+.animal-imagem {
     border: 10px solid #5fba5b;
     border-radius: 10px;
     background-color: #5fba5b;
 }
 
-.carousel img {
+.carousel-inner img {
     object-fit: contain;
     aspect-ratio: 1 / 1;
 }

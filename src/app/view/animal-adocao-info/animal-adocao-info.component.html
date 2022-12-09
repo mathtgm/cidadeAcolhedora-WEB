@@ -1,7 +1,13 @@
 <app-navbar></app-navbar>
 <div class="row g-0 p-5 d-flex">
-    <div class="col-md">
-        <div id="carouselControls" class="carousel slide mb-sm-3" data-bs-ride="carousel">
+    <div class="col-lg overflow-hidden">
+        <div *ngIf="animal?.imagem?.length === 0"
+            class="animal-imagem d-flex justify-content-center text-center flex-column h-100">
+            <img src="../../../assets/not-found-animal-img.jpeg" alt="">
+            <span class="h1 font-monospace text-white">O Animalzinho não possui imagem carregada.</span>
+        </div>
+        <div *ngIf="animal?.imagem?.length! > 0" id="carouselControls" class="carousel slide mb-sm-3 animal-imagem"
+            data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div *ngFor="let imagem of animal?.imagem; index as i">
                     <div class="carousel-item" [ngClass]="{'active': i === 0}">
@@ -108,19 +114,25 @@
                 <span class="h2">Informações do doador</span>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="col">
-                        <p class="d-flex align-items-center"><img src="../../../assets/icons/usuario.png" alt="Usuário"
-                                class="icon-info me-2"><span class="fw-bold pe-2">Nome: </span>{{animal?.idDoador!.nome}}</p>
+                <div class="row mb-2">
+                    <div class="col-auto mx-3 p-0">
+                        <p class="d-flex align-items-center"><img src="../../../assets/icons/usuario.png" alt="Usuário" class="icon-info me-2">
+                            <span class="fw-bold">Nome:</span>
+                        </p>
                     </div>
-                    <div class="col">
-                        <p class="d-flex align-items-center"><img src="../../../assets/icons/pin-loc.png"
-                                alt="Pino de localização" class="icon-info me-2"><span class="fw-bold pe-2">Localização:</span>
-                            {{animal?.idDoador!.cidade.nome}} - {{animal?.idDoador!.estado.nome}}</p>
-                    </div>
+                    <div class="col-auto me-1 p-0">{{animal?.idDoador?.nome}}</div>
                 </div>
-                <button class="btn btn-success w-100" *ngIf="animal?.idTutor !== undefined">Preencher o formulário de adoção !</button>
+                <div class="row mb-2">
+                    <div class="col-auto mx-3 p-0">
+                        <p class="d-flex align-items-center">
+                            <img src="../../../assets/icons/pin-loc.png" alt="Pino de localização" class="icon-info me-2">
+                            <span class="fw-bold">Localização:</span>
+                        </p>
+                    </div>
+                    <div class="col-auto me-1 p-0">{{animal?.idDoador?.cidade?.nome}} -
+                        {{animal?.idDoador?.estado?.nome}}</div>
+                </div>
+                <button class="btn btn-success w-100" *ngIf="animal?.idTutor !== undefined">Preencher o formulário de adoção</button>
             </div>
         </div>
     </div>
-</div>
