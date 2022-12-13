@@ -1,0 +1,64 @@
+<app-navbar></app-navbar>
+<div class="container shadow-lg my-5 p-0 overflow-hidden rounded">
+  <h1 class="text-center p-2 fw-bold form-title">Formulário de adoção</h1>
+  <div class="form-info p-3">
+    <app-msg-alerta [msgAlerta]="msgPagina" [status]="msgStatus"></app-msg-alerta>
+    <p class="h2">Informações gerais</p>
+    <hr>
+    <span class="h3">Informações do animalzinho:</span>
+    <div class="row mt-3">
+      <div class="col-auto"><span class="fw-bold">Nome: </span>{{animal?.nome}}</div>
+      <div class="col-auto"><span class="fw-bold">Idade: </span>{{animal?.idade}} Ano(s)</div>
+      <div class="col-auto"><span class="fw-bold">Tipo: </span>{{animal?.tipo}}</div>
+    </div>
+    <div class="mt-3">
+      <span class="fw-bold">Descrição do animalzinho:</span>
+      <p>{{animal?.descricao}}</p>
+    </div>
+    <section>
+      <span class="h3">Informações do doador:</span>
+      <div class="row mt-3">
+        <div class="col-auto"><span class="fw-bold">Nome: </span>{{animal?.idDoador?.nome}}</div>
+        <div class="col-auto"><span class="fw-bold">Cidade: </span>{{animal?.idDoador?.cidade?.nome}}</div>
+        <div class="col-auto"><span class="fw-bold">Estado: </span>{{animal?.idDoador?.estado?.nome}}</div>
+      </div>
+    </section>
+    <hr>
+    <form method="post" [formGroup]="formAdocao">
+      <h2>Apresentação do pedido de adoção: </h2>
+      <p>Abaixo escreva resumo sobre você e o porque você deveria ser o tutor do
+        animalzinho.</p>
+      <textarea class="form-control" formControlName="descricao" maxlength="800" rows="5"></textarea>
+      <div class="alert alert-danger mt-1" *ngIf="formControl['descricao'].errors?.['required'] && submited">
+        Esse campo precisa ser ser preenchido.
+      </div>
+      <div class="btn-group mt-3 w-100">
+        <button class="btn btn-success" [attr.data-bs-target]="formAdocao.valid ? '#modalFormulario' : ''"
+          [attr.data-bs-toggle]="formAdocao.valid ? 'modal': ''" (click)="validarFormulario()">Enviar
+          formulario</button>
+        <button class="btn btn-danger" type="reset">Limpar campo</button>
+        <div class="modal fade" id="modalFormulario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirmação de envio!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+              </div>
+              <div class="modal-body">
+                Aviso! Você concorda que ao enviar o formulário o Doador terá a visualização dos seus dados como
+                Telefone, E-mail, Nome e Endereço?
+              </div>
+              <div class="modal-footer">
+                <button type="button" (click)="enviarSolicitacao()" class="btn btn-success" data-bs-dismiss="modal">Concordo</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+</div>

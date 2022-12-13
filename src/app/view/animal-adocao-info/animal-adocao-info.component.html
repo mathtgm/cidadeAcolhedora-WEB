@@ -132,7 +132,7 @@
                     <div class="col-auto me-1 p-0">{{animal?.idDoador?.cidade?.nome}} -
                         {{animal?.idDoador?.estado?.nome}}</div>
                 </div>
-                <button class="btn btn-success w-100" *ngIf="animal?.idTutor !== undefined">Preencher o formulário de adoção</button>
+                <button class="btn btn-success w-100" *ngIf="animal?.idTutor !== undefined" [routerLink]="['/animal/adocao/formulario/'+ animal?.id_animal]" >Preencher o formulário de adoção</button>
             </div>
         </div>
     </div>

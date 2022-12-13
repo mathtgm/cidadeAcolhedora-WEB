@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +19,8 @@ import { FormAnimalComponent } from './view/form-animal/form-animal.component';
 import { CardAnimalAdocaoComponent } from './components/card-animal-adocao/card-animal-adocao.component';
 import { ListaAnimalAdocaoComponent } from './view/lista-animal-adocao/lista-animal-adocao.component';
 import { AnimalAdocaoInfoComponent } from './view/animal-adocao-info/animal-adocao-info.component';
+import { FormAnimalAdocaoComponent } from './view/form-animal-adocao/form-animal-adocao.component';
+import { MsgAlertaComponent } from './components/msg-alerta/msg-alerta.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { AnimalAdocaoInfoComponent } from './view/animal-adocao-info/animal-adoc
     FormAnimalComponent,
     CardAnimalAdocaoComponent,
     ListaAnimalAdocaoComponent,
-    AnimalAdocaoInfoComponent
+    AnimalAdocaoInfoComponent,
+    FormAnimalAdocaoComponent,
+    MsgAlertaComponent
   ],
   imports: [
     BrowserModule,

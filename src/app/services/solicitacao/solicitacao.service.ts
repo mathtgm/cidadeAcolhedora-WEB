@@ -20,4 +20,12 @@ export class SolicitacaoService {
     return this.httpClient.get<Solicitacao[]>(this.apiURL + "adotante/" + id_adotante, {});
   }
 
+  consultaSolicitacaoPorId(id_solicitacao: BigInt): Observable<Solicitacao> {
+    return this.httpClient.get<Solicitacao>(this.apiURL.concat(id_solicitacao.toString()));
+  }
+
+  cadastrarSolicitacao(solicitacao: Solicitacao): Observable<Solicitacao> {
+    return this.httpClient.post<Solicitacao>(this.apiURL + 'cadastrar', solicitacao);
+  }
+
 }
