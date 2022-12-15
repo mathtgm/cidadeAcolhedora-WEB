@@ -28,4 +28,8 @@ export class SolicitacaoService {
     return this.httpClient.post<Solicitacao>(this.apiURL + 'cadastrar', solicitacao);
   }
 
+  atualizarStatus(solicitacao: Solicitacao): Observable<Solicitacao> {
+
+    return this.httpClient.put<Solicitacao>(this.apiURL + 'atualizar', solicitacao);
+  }
 }

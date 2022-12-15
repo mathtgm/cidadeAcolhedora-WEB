@@ -17,7 +17,7 @@
       <td *ngIf="solicitacao.situacao === 'B'"><span class="badge text-bg-warning">Em análise</span></td>
       <td *ngIf="solicitacao.situacao === 'C'"><span class="badge text-bg-danger">Recusado</span></td>
       <td *ngIf="solicitacao.situacao === 'D'"><span class="badge text-bg-success">Aprovado</span></td>
-      <td>!!Acao!!</td>
+      <td><a class="text-decoration-none" [routerLink]="['/animal/adocao/solicitacao/'+ solicitacao.id_solicitacao]"><i class="bi bi-eye-fill me-2"></i>Visualizar</a></td>
     </tr>
   </tbody>
 </table>

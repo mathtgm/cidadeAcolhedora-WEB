@@ -12,6 +12,9 @@ export class ConversorDataPipe implements PipeTransform {
     let dia: String = value[2].toString();
     let hora: String = value[3].toString();
     let min: String = value[4].toString();
+    if(min.length == 1) {
+      min = '0' + min;
+    }
 
     return dia + '/' + mes + '/' + ano + ' ' + hora + ':' + min;
   }

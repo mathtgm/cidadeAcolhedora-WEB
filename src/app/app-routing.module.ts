@@ -45,6 +45,10 @@ const routes: Routes = [
   {
     path: 'animal/adocao/formulario/:id',
     component: FormAnimalAdocaoComponent
+  },
+  {
+    path: 'animal/adocao/solicitacao/:id',
+    component: FormAnimalAdocaoComponent
   }
 ];
 
