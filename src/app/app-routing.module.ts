@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './view/home/home.component';
 import { LoginComponent } from './view/login/login.component';
 import { FormAnimalAdocaoComponent } from './view/form-animal-adocao/form-animal-adocao.component';
+import { FormPerfilComponent } from './view/form-perfil/form-perfil.component';
 
 const routes: Routes = [
   {
@@ -49,6 +50,10 @@ const routes: Routes = [
   {
     path: 'animal/adocao/solicitacao/:id',
     component: FormAnimalAdocaoComponent
+  },
+  {
+    path: 'usuario/perfil',
+    component: FormPerfilComponent
   }
 ];
 

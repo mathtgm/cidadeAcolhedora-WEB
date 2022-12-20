@@ -16,4 +16,10 @@ export class UsuarioService {
     return this.httpClient.post<Usuario>(this.apiURL, { usuario: user, senha: pswd});
   }
 
+  atualizarUsuario(usuario: Usuario): Observable<Usuario> {
+
+    return this.httpClient.put<Usuario>(this.apiURL + 'atualizar/', usuario);
+
+  }
+
 }

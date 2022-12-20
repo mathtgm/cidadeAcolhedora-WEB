@@ -18,4 +18,10 @@ export class EstadoService {
 
   }
 
+  procurarEstado(idEstado: bigint): Observable<Estado> {
+
+    return this.httpClient.get<Estado>(this.apiURL.concat(idEstado.toString()));
+
+  }
+
 }

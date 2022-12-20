@@ -21,6 +21,10 @@ import { ListaAnimalAdocaoComponent } from './view/lista-animal-adocao/lista-ani
 import { AnimalAdocaoInfoComponent } from './view/animal-adocao-info/animal-adocao-info.component';
 import { FormAnimalAdocaoComponent } from './view/form-animal-adocao/form-animal-adocao.component';
 import { MsgAlertaComponent } from './components/msg-alerta/msg-alerta.component';
+import { FormPerfilComponent } from './view/form-perfil/form-perfil.component';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+
+export const options: Partial<null|IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
   declarations: [
@@ -40,14 +44,16 @@ import { MsgAlertaComponent } from './components/msg-alerta/msg-alerta.component
     ListaAnimalAdocaoComponent,
     AnimalAdocaoInfoComponent,
     FormAnimalAdocaoComponent,
-    MsgAlertaComponent
+    MsgAlertaComponent,
+    FormPerfilComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

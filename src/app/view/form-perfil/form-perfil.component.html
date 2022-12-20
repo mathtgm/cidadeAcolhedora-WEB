@@ -1,0 +1,62 @@
+
+<div class="row">
+    <div class="col-auto">
+        <app-navbar-painel></app-navbar-painel>
+    </div>
+    <div class="col my-4 bg-light">
+        <section class="container py-3">
+            <h1>Perfil do usuário</h1>
+            <app-msg-alerta [msgAlerta]="msgAlerta"[status]="msgStatus"></app-msg-alerta>
+            <hr>
+            <form method="post" [formGroup]="formPerfil">
+                <fieldset>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label class="form-label" for="nome">Nome: </label>
+                            <input class="form-control" id="nome" type="text" formControlName="nome">
+                            <div class="alert alert-danger my-2" *ngIf="formControl['nome'].errors?.['required'] && submitted">Esse campo precisa ser preenchido</div>
+                        </div>
+                        <div class="col">
+                            <label class="form-label" for="genero">Genêro:</label>
+                            <select class="form-control" id="genero">
+                                <option value="" *ngFor="let keys of enumGeneroKeys; index as i" [value]="keys">
+                                    {{enumGeneroValues[i]}}
+                                </option>
+                            </select>
+                            <div class="alert alert-danger my-2" *ngIf="formControl['genero'].errors?.['required'] && submitted">Esse campo precisa ser preenchido</div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="documento" class="form-label">CPF</label>
+                            <input type="text" mask="000.000.000-00" class="form-control" id="documento" formControlName="documento">
+                            <div class="alert alert-danger my-2" *ngIf="formControl['documento'].errors?.['required'] && submitted">Esse campo precisa ser preenchido</div>
+                        </div>
+                        <div class="col">
+                            <label for="telefone" class="form-label">Telefone: </label>
+                            <input type="text" mask="(00) 0000000*" formControlName="telefone" class="form-control">
+                            <div class="alert alert-danger my-2" *ngIf="formControl['telefone'].errors?.['required'] && submitted">Esse campo precisa ser preenchido</div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="estado" class="form-label">Estado: </label>
+                            <select class="form-select" id="estado" formControlName="estadoId" (change)="listarCidade($event.target!)">
+                                <option *ngFor="let estado of estados" [value]="estado.id_estado">{{estado.nome}}</option>
+                            </select>
+                            <div class="alert alert-danger my-2" *ngIf="formControl['estadoId'].errors?.['required'] && submitted">Esse campo precisa ser preenchido</div>
+                        </div>
+                        <div class="col">
+                            <label for="cidade" class="form-label">Cidade:</label>
+                            <select class="form-select" id="cidade" formControlName="cidadeId">
+                                <option *ngFor="let cidade of cidades" [value]="cidade.id_cidade">{{cidade.nome}}</option>
+                            </select>
+                            <div class="alert alert-danger my-2" *ngIf="formControl['cidadeId'].errors?.['required'] && submitted">Esse campo precisa ser preenchido</div>
+                        </div>
+                    </div>
+                </fieldset>
+                <button class="btn btn-success" (click)="atualizarPerfil()"><i class="bi bi-pencil-square me-2"></i>Atualizar dados!</button>
+            </form>
+        </section>
+    </div>
+</div>
