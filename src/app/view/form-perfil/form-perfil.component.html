@@ -18,7 +18,7 @@
                         </div>
                         <div class="col">
                             <label class="form-label" for="genero">Genêro:</label>
-                            <select class="form-control" id="genero">
+                            <select class="form-control" id="genero" formControlName="genero">
                                 <option value="" *ngFor="let keys of enumGeneroKeys; index as i" [value]="keys">
                                     {{enumGeneroValues[i]}}
                                 </option>
