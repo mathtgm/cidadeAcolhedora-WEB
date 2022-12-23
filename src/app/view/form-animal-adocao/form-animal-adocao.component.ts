@@ -14,6 +14,7 @@ import { SolicitacaoService } from 'src/app/services/solicitacao/solicitacao.ser
 export class FormAnimalAdocaoComponent implements OnInit {
 
   animal?: Animal;
+  temTutor: boolean = false;
   solicitacao?: Solicitacao;
   visualizacao: boolean = false;
   isDoador: boolean = false;
@@ -90,6 +91,8 @@ export class FormAnimalAdocaoComponent implements OnInit {
 
   // Checa se o usuario é o Doador/está logado, caso acontecer uma das opções redireciona de página. 
   checarVisualizacao(): void {
+
+    this.temTutor = this.animal?.idTutor !== undefined;
 
     let usuario = JSON.parse(localStorage.getItem("userInfo")!);
 

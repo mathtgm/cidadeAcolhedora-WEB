@@ -9,6 +9,7 @@ import { HomeComponent } from './view/home/home.component';
 import { LoginComponent } from './view/login/login.component';
 import { FormAnimalAdocaoComponent } from './view/form-animal-adocao/form-animal-adocao.component';
 import { FormPerfilComponent } from './view/form-perfil/form-perfil.component';
+import { ListaAnimaisAdotadosComponent } from './view/lista-animais-adotados/lista-animais-adotados.component';
 
 const routes: Routes = [
   {
@@ -54,6 +55,10 @@ const routes: Routes = [
   {
     path: 'usuario/perfil',
     component: FormPerfilComponent
+  },
+  {
+    path: 'usuario/painel/adotados',
+    component: ListaAnimaisAdotadosComponent
   }
 ];
 

@@ -44,13 +44,13 @@
       <div class="alert alert-danger mt-1" *ngIf="formControl['descricao'].errors?.['required'] && submited">
         Esse campo precisa ser ser preenchido.
       </div>
-      <div class="btn-group mt-3 w-100" *ngIf="!visualizacao">
+      <div class="btn-group mt-3 w-100" *ngIf="!visualizacao || !temTutor">
         <button class="btn btn-success" [attr.data-bs-target]="formAdocao.valid ? '#modalFormulario' : ''"
           [attr.data-bs-toggle]="formAdocao.valid ? 'modal': ''" (click)="validarFormulario()">Enviar
           formulario</button>
         <button class="btn btn-danger" type="reset">Limpar campo</button>
       </div>
-      <div *ngIf="isDoador">
+      <div *ngIf="isDoador || !temTutor">
         <h3 class="mt-3">Ações</h3>
       <div class="btn-group mt-3 w-100">
         <button class="btn btn-success" (click)="alterarStatus('D')"><i class="bi bi-clipboard2-check-fill me-2"></i>Aceitar</button>

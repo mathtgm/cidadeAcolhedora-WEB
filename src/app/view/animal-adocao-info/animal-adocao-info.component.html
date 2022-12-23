@@ -116,7 +116,8 @@
             <div class="card-body">
                 <div class="row mb-2">
                     <div class="col-auto mx-3 p-0">
-                        <p class="d-flex align-items-center"><img src="../../../assets/icons/usuario.png" alt="Usuário" class="icon-info me-2">
+                        <p class="d-flex align-items-center"><img src="../../../assets/icons/usuario.png" alt="Usuário"
+                                class="icon-info me-2">
                             <span class="fw-bold">Nome:</span>
                         </p>
                     </div>
@@ -125,14 +126,17 @@
                 <div class="row mb-2">
                     <div class="col-auto mx-3 p-0">
                         <p class="d-flex align-items-center">
-                            <img src="../../../assets/icons/pin-loc.png" alt="Pino de localização" class="icon-info me-2">
+                            <img src="../../../assets/icons/pin-loc.png" alt="Pino de localização"
+                                class="icon-info me-2">
                             <span class="fw-bold">Localização:</span>
                         </p>
                     </div>
                     <div class="col-auto me-1 p-0">{{animal?.idDoador?.cidade?.nome}} -
                         {{animal?.idDoador?.estado?.nome}}</div>
                 </div>
-                <button class="btn btn-success w-100" *ngIf="animal?.idTutor !== undefined" [routerLink]="['/animal/adocao/formulario/'+ animal?.id_animal]" >Preencher o formulário de adoção</button>
+                <button *ngIf="!animal?.idTutor" class="btn btn-success w-100"
+                    [routerLink]="['/animal/adocao/formulario/'+ animal?.id_animal]">Preencher o formulário de
+                    adoção</button>
             </div>
         </div>
     </div>

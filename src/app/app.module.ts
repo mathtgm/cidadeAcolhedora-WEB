@@ -22,7 +22,8 @@ import { AnimalAdocaoInfoComponent } from './view/animal-adocao-info/animal-adoc
 import { FormAnimalAdocaoComponent } from './view/form-animal-adocao/form-animal-adocao.component';
 import { MsgAlertaComponent } from './components/msg-alerta/msg-alerta.component';
 import { FormPerfilComponent } from './view/form-perfil/form-perfil.component';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { ListaAnimaisAdotadosComponent } from './view/lista-animais-adotados/lista-animais-adotados.component'
 
 export const options: Partial<null|IConfig> | (() => Partial<IConfig>) = null;
 
@@ -45,7 +46,8 @@ export const options: Partial<null|IConfig> | (() => Partial<IConfig>) = null;
     AnimalAdocaoInfoComponent,
     FormAnimalAdocaoComponent,
     MsgAlertaComponent,
-    FormPerfilComponent
+    FormPerfilComponent,
+    ListaAnimaisAdotadosComponent
   ],
   imports: [
     BrowserModule,

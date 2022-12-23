@@ -13,23 +13,21 @@ export class AnimalAdocaoInfoComponent implements OnInit {
   animal?: Animal;
   apiURL: String = 'http://localhost:8080/animal/imagem/';
 
-  constructor(private animalService: AnimalService, private activatedRoute: ActivatedRoute, private router: Router) {
-    activatedRoute.paramMap.subscribe({
+  constructor(private animalService: AnimalService, private activatedRoute: ActivatedRoute, private router: Router) {}
+
+  ngOnInit() {
+    this.activatedRoute.paramMap.subscribe({
       next: parametro => {
-        animalService.procaraAnimalPorId(BigInt(parametro.get("id")!)).subscribe({
+        this.animalService.procaraAnimalPorId(BigInt(parametro.get("id")!)).subscribe({
           next: result => {
             this.animal = result;
           },
           error: () => {
-            router.navigate(['/animal/adocao'])
+            this.router.navigate(['/animal/adocao'])
           }
         });
       }
     });
-  }
-
-  ngOnInit() {
-    
   }
 
 }
