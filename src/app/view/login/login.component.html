@@ -14,6 +14,7 @@
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-key-fill pe-2"></i>Senha</span>
                 <input type="password" class="form-control" placeholder="Senha" maxlength="16" id="pswd" [(ngModel)]="pswd" required>
             </div>
+            <span>Não é usuário? </span><a routerLink="/cadastro/usuario" class="text-center">Cadastre-se</a>
             <div class="d-grid gap-2">
                 <button class="btn btn-success" (click)="validarUsuario()" type="button">Acessar</button>
             </div>

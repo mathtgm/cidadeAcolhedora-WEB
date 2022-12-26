@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+<form method="post" [formGroup]="formUsuario" class="bg-light container p-5">
+    <h1>Cadastro de usuário</h1>
+    <hr>
+    <fieldset>
+    <label for="nome">Nome:</label>
+    <input type="text" class="form-control" id="nome" formControlName="nome">
+    <div class="alert alert-danger mt-3" *ngIf="formControl['nome'].errors?.['required'] && submitted">Esse campo precisa ser preenchido</div>
+    <div class="row mt-3">
+        <div class="col">
+            <label for="documento">CPF</label>
+            <input type="text" id="documento" class="form-control" mask="000.000.000-00" placeholder="000.000.000-00" formControlName="documento">
+            <div class="alert alert-danger mt-3" *ngIf="formControl['documento'].errors?.['required'] && submitted">Esse campo precisa ser preenchido</div>
+        </div>
+        <div class="col">
+            <label for="telefone">Telefone</label>
+            <input type="text" mask="(00) 000000*" id="telefone" class="form-control" placeholder="(00) 00000-0000" formControlName="telefone">
+            <div class="alert alert-danger mt-3" *ngIf="formControl['telefone'].errors?.['required'] && submitted">Esse campo precisa ser preenchido</div>
+        </div>
+        <div class="col">
+            <label for="genero">Sexo:</label>
+            <select class="form-select" id="genero" formControlName="genero">
+                <option *ngFor="let key of generoKeys; index as i" [value]="key">{{generoValues[i]}}</option>
+            </select>
+            <div class="alert alert-danger mt-3" *ngIf="formControl['genero'].errors?.['required'] && submitted">Selecione um opção de gênero</div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <label for="estado">Estado:</label>
+            <select id="estado" class="form-select" formControlName="estadoId" (change)="listaCidades()">
+                <option value="" selected></option>
+                <option *ngFor="let estado of estados" [value]="estado.id_estado">{{estado.nome}}</option>
+            </select>
+            <div class="alert alert-danger mt-3" *ngIf="formControl['estadoId'].errors?.['required'] && submitted">Selecione um estado</div>
+        </div>
+        <div class="col">
+            <label for="cidade">Cidade:</label>
+            <select id="cidade" class="form-select" formControlName="cidadeId" (change)="definirEstadoCidadeForm()">
+                <option value=""></option>
+                <option *ngFor="let cidade of cidades" [value]="cidade.id_cidade">{{cidade.nome}}</option>
+            </select>
+            <div class="alert alert-danger mt-3" *ngIf="formControl['cidadeId'].errors?.['required'] && submitted">Selecione uma cidade</div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <label for="usuario">Usuário:</label>
+            <input type="text" id="usuario" class="form-control" formControlName="usuario">
+            <div class="alert alert-danger mt-3" *ngIf="formControl['usuario'].errors?.['required'] && submitted">Esse campo precisa ser preenchido</div>
+        </div>
+        <div class="col">
+            <label for="senha">Senha:</label>
+            <input type="password" class="form-control" id="senha" formControlName="senha" minlength="6" maxlength="16">
+            <div class="alert alert-danger mt-3" *ngIf="(formControl['senha'].errors?.['minlength'] || !formControl['senha'].touched) && submitted">A senha precisa ter no minímo 6 e máximo 16 caracteres</div>
+            <div class="alert alert-danger mt-3" *ngIf="formControl['senha'].errors?.['maxlength'] && submitted">A senha pode ter no maxímo 16 caracteres</div>
+        </div>
+    </div>
+    <button class="btn btn-success mt-3" (click)="enviarFormulario()"><i class="bi bi-pencil-fill me-2"></i>Cadastrar-se</button>
+    </fieldset>
+</form>

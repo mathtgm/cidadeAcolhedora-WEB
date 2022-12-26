@@ -23,7 +23,8 @@ import { FormAnimalAdocaoComponent } from './view/form-animal-adocao/form-animal
 import { MsgAlertaComponent } from './components/msg-alerta/msg-alerta.component';
 import { FormPerfilComponent } from './view/form-perfil/form-perfil.component';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
-import { ListaAnimaisAdotadosComponent } from './view/lista-animais-adotados/lista-animais-adotados.component'
+import { ListaAnimaisAdotadosComponent } from './view/lista-animais-adotados/lista-animais-adotados.component';
+import { FormUsuarioCadastroComponent } from './view/form-usuario-cadastro/form-usuario-cadastro.component'
 
 export const options: Partial<null|IConfig> | (() => Partial<IConfig>) = null;
 
@@ -47,7 +48,8 @@ export const options: Partial<null|IConfig> | (() => Partial<IConfig>) = null;
     FormAnimalAdocaoComponent,
     MsgAlertaComponent,
     FormPerfilComponent,
-    ListaAnimaisAdotadosComponent
+    ListaAnimaisAdotadosComponent,
+    FormUsuarioCadastroComponent
   ],
   imports: [
     BrowserModule,

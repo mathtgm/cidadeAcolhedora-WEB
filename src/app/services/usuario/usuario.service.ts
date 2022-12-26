@@ -22,4 +22,10 @@ export class UsuarioService {
 
   }
 
+  cadastrarUsuario(usuario: Usuario): Observable<Usuario> {
+
+    return this.httpClient.put<Usuario>(this.apiURL + 'cadastrar/', usuario);
+
+  }
+
 }
