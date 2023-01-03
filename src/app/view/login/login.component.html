@@ -6,18 +6,22 @@
             <div class="alert alert-danger" id="notificacao" hidden>
 
             </div>
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle pe-2"></i>Usuário</span>
-                <input type="text" class="form-control" placeholder="Usuário" maxlength="20" id="user" name="user" (input)="user" required/>
-            </div>
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-key-fill pe-2"></i>Senha</span>
-                <input type="password" class="form-control" placeholder="Senha" maxlength="16" id="pswd" (input)="pswd" required>
-            </div>
-            <span>Não é usuário? </span><a routerLink="/cadastro/usuario" class="text-center">Cadastre-se</a>
-            <div class="d-grid gap-2">
-                <button class="btn btn-success" (click)="validarUsuario()" type="button">Acessar</button>
-            </div>
+            <form method="post" [formGroup]="formLogin">
+                <fieldset>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle pe-2"></i>Usuário</span>
+                        <input type="text" class="form-control" placeholder="Usuário" maxlength="20" id="user" name="user" formControlName="usuario" required/>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-key-fill pe-2"></i>Senha</span>
+                        <input type="password" class="form-control" placeholder="Senha" maxlength="16" id="pswd" formControlName="senha" required>
+                    </div>
+                    <span>Não é usuário? </span><a routerLink="/cadastro/usuario" class="text-center">Cadastre-se</a>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-success" (click)="validarUsuario()" type="button">Acessar</button>
+                    </div>
+                </fieldset>
+            </form>
 
         </div>
     </div>
