@@ -27,15 +27,34 @@
 
 ### Back-end
 [Link de download da API](https://github.com/mathtgm/cidadeAcolhedora-api)
-* <p>Antes de iniciar o aplicativo WEB, você deverá ter instalado e iniciado na máquina o banco de dados e a parte back-end.</p>
+* <p>Antes de iniciar o site, você deverá ter instalado e iniciado na máquina o banco de dados e a parte back-end.</p>
 
 * <p>Na API altere as informações do arquivo "application.properties" de acordo com a configurações damáquina e comunicação. OBS: Altere opção "spring.jpa.hibernate.ddl-auto" para "create" (Assim o Hibernate entederam que cada vem que a API iniciar deverá criar as tabelas no banco de dados). Também crie um banco de dados chamado "cidadeacolhedora".</p>
 
 
 ### Front-end
-* Para rodar o servidor entre na pasta raiz do projeto e rode o comando `ng serve`. A página será iniciada via local no link `http://localhost:4200/`.
+* Para iniciar o servidor entre na pasta raiz do projeto e rode o comando `ng serve`. A página será iniciada via local no link `http://localhost:4200/`.
 
 # Imagens 🖼️
+
+## Página Home
+<img src="./imagens/home.png">
+<hr>
+
+## Lista de animais para adoção
+<img src="./imagens/lista_adocao.png">
+<hr>
+
+## Informações do animal
+<img src="./imagens/info_animal.png">
+<hr>
+
+## Página de lista de animais para a adoção do usuário
+<img src="./imagens/adocao.png">
+<hr>
+
+## Dashboard dos usuários
+<img src="./imagens/dash_board.png">
 
 [Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
 [Angular-url]: https://angular.io/
